@@ -1,11 +1,14 @@
+import Configuration from '../configuration';
+
 class ExecutionService {
 
     constructor() {
+      this.config = new Configuration();
       this.executions = [];
     }
 
     async retrieveExecutions() {
-        return fetch("http://localhost:5000/api/executions")
+        return fetch(this.config.EXECUTION_COLLECTION_URL)
         .then(response => {
             if (!response.ok) {
             this.handleResponseError(response);
