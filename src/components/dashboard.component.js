@@ -15,7 +15,7 @@ export default class Dashboard extends Component {
         this.executionService.retrieveExecutions().then(executions => {
             const listExecutions = executions.map((execution) => 
                 <li key={execution.id} onClick={() => this.onSelect(execution.link)}>
-                    <span className="execution-name">{execution.testcaseId}</span> | {execution.state}
+                    <span className="execution-name">{execution.testcaseId}</span> | {execution.status}
                 </li>
             );
             this.setState({executions: listExecutions});
