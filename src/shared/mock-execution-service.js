@@ -25,14 +25,22 @@ class ExecutionService {
     }
 
     async createExecution(execution) {
+    
+      const content = '{' +
+        '"id": ' + parseInt(execution.get("id"), 10) + ', ' +
+        '"testcaseId": "' + execution.get("testcaseId") + '", ' + 
+        '"status": "' + execution.get("status") + '" ' + 
+        '}';
+        
       const requestConf = {
         method: 'POST',
         headers: {
             Accept: 'application/json',
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(execution)
+        body: content
       };
+
       return fetch(this.config.EXECUTION_COLLECTION_URL, requestConf)
       .then(response => {
           if (!response.ok)
