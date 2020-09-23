@@ -65,14 +65,6 @@ class ExecutionService {
       return null;
     }
 
-    /*
-    async createExecution(execution) {
-      console.log("ExecutionService.createExecution():");
-      console.log(execution);
-      return Promise.resolve(execution);
-    }
-    */
-
     async deleteExecution(executionId) {
       console.log("ExecutionService.deleteExecution():");
       console.log("execution ID:" + executionId);
@@ -89,6 +81,32 @@ class ExecutionService {
 
     handleError(error) {
         console.log(error.message);
+    }
+
+    getStatData() {
+      let data = [];
+    
+      data.push({
+        label: 'AAA01',
+        value: 96
+      });
+    
+      data.push({
+        label: 'AAA02',
+        value: 23
+      });
+    
+      data.push({
+        label: 'AAA03',
+        value: 38
+      });
+    
+      data.push({
+        label: 'AAA04',
+        value: 6
+      });
+    
+      return Promise.resolve(data);
     }
   }
   export default ExecutionService;
