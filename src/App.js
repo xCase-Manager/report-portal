@@ -4,8 +4,8 @@ import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Dashboard from './components/dashboard.component';
+import Board from './components/board.component';
 import Execution from './components/execution.component';
-import ExecutionService from './shared/mock-execution-service';
 
 function App() {
   return (<Router>
@@ -17,6 +17,9 @@ function App() {
             <ul className="navbar-nav ml-auto">
               <li className="nav-item">
                 <Link className="nav-link" to={"/dashboard"}>Dashboard</Link>
+              </li>
+              <li className="nav-item">
+                <Link className="nav-link" to={"/board"}>Board</Link>
               </li>
               <li className="nav-item">
                 <Link className="nav-link" to={"/execution"}>Execution</Link>
@@ -31,6 +34,7 @@ function App() {
           <Switch>
             <Route exact path='/' component={Dashboard} />
             <Route path="/dashboard" component={Dashboard} />
+            <Route path="/board" component={Board} />
             <Route path="/execution" component={Execution} />
           </Switch>
         </div>

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ExecutionService from '../shared/mock-execution-service';
 
+
 export default class Dashboard extends Component {
 
     constructor(props) {
@@ -23,7 +24,7 @@ export default class Dashboard extends Component {
         );     
     }
 
-    render() {
+    render() {   
         return (
             <form>
                 <h3>Dashboard</h3>
@@ -35,7 +36,7 @@ export default class Dashboard extends Component {
                     {this.state.executions}
                 </div>             
             </form>
-        );
+        );     
     }
 
     getExecutions() {
