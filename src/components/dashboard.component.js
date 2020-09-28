@@ -5,7 +5,7 @@ import { Chart } from 'chart.js';
 
 Chart.defaults.global.defaultFontFamily = "Roboto, sans-serif";
 
-export default class Board extends Component {
+export default class Dashboard extends Component {
 
     constructor(props) {
         super(props);

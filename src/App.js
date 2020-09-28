@@ -2,7 +2,7 @@ import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Board from './components/board.component';
+import Dashboard from './components/dashboard.component';
 import Execution from './components/execution.component';
 
 function App() {
@@ -26,8 +26,8 @@ function App() {
       <div className="auth-wrapper">
         <div className="auth-inner">
           <Switch>
-            <Route exact path='/' component={Board}  />
-            <Route exact path='/dashboard' component={Board}  />
+            <Route exact path='/' component={Dashboard}  />
+            <Route exact path='/dashboard' component={Dashboard}  />
             <Route path="/execution" component={Execution} />
           </Switch>
         </div>
