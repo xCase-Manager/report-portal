@@ -32,9 +32,7 @@ function App() {
       <div className="auth-wrapper">
         <div className="auth-inner">
           <Switch>
-            <Route exact path='/' component={Dashboard} />
-            <Route path="/dashboard" component={Dashboard} />
-            <Route path="/board" component={Board} />
+            <Route exact path='/' component={Board}  />
             <Route path="/execution" component={Execution} />
           </Switch>
         </div>
