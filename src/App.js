@@ -2,8 +2,6 @@ import React from 'react';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-
-import Dashboard from './components/dashboard.component';
 import Board from './components/board.component';
 import Execution from './components/execution.component';
 
@@ -19,20 +17,17 @@ function App() {
                 <Link className="nav-link" to={"/dashboard"}>Dashboard</Link>
               </li>
               <li className="nav-item">
-                <Link className="nav-link" to={"/board"}>Board</Link>
-              </li>
-              <li className="nav-item">
                 <Link className="nav-link" to={"/execution"}>Execution</Link>
               </li>
             </ul>
           </div>
         </div>
       </nav>
-
       <div className="auth-wrapper">
         <div className="auth-inner">
           <Switch>
             <Route exact path='/' component={Board}  />
+            <Route exact path='/dashboard' component={Board}  />
             <Route path="/execution" component={Execution} />
           </Switch>
         </div>
@@ -40,5 +35,4 @@ function App() {
     </div></Router>
   );
 }
-
 export default App;
