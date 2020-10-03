@@ -8,20 +8,32 @@ class ExecutionService {
     }
 
     async retrieveExecutions() {
-        return fetch(this.config.EXECUTION_COLLECTION_URL)
-        .then(response => {
-            if (!response.ok) {
-            this.handleResponseError(response);
-            }
-            return response.json();
-        })
-        .then(json => {
-            this.executions = json;
-            return json;
-        })
-        .catch(error => {
-            this.handleError(error);
-        });
+      return retrieveData(this.config.EXECUTION_COLLECTION_URL);
+    }
+
+    async retrieveTestcases() {
+      return retrieveData(this.config.TESTCASE_COLLECTION_URL);
+    }
+
+    async retrieveProjects() {
+      return retrieveData(this.config.PROJECT_COLLECTION_URL);
+    }
+
+    async retrieveData(url) {
+      return fetch(url)
+      .then(response => {
+          if (!response.ok) {
+          this.handleResponseError(response);
+          }
+          return response.json();
+      })
+      .then(json => {
+          this.executions = json;
+          return json;
+      })
+      .catch(error => {
+          this.handleError(error);
+      });
     }
 
     async createExecution(execution) {
