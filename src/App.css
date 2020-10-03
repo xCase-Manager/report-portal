@@ -40,3 +40,9 @@
     width: 29%;
   }
 }
+
+footer {
+  font: 100% Helvetica, sans-serif;
+  background-color: black;
+  min-height: 5em;
+}
