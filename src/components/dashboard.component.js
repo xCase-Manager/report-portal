@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import ExecutionService from '../shared/mock-execution-service';
+import MockExecutionService from '../shared/mock-execution-service';
 import { Chart } from 'chart.js';
 import '../App.css';
 
@@ -14,13 +14,13 @@ class BarChart extends React.Component {
   }
 
   componentDidUpdate() {
-    this.myChart.data.labels = this.props.data.map(d => d.label);
-    this.myChart.data.datasets[0].data = this.props.data.map(d => d.value);
-    this.myChart.update();
+    this.barChart.data.labels = this.props.data.map(d => d.label);
+    this.barChart.data.datasets[0].data = this.props.data.map(d => d.value);
+    this.barChart.update();
   }
 
   componentDidMount() {
-    this.myChart = new Chart(this.canvasRef.current, {
+    this.barChart = new Chart(this.canvasRef.current, {
       type: 'bar',
       options: {
           maintainAspectRatio: false,
@@ -62,13 +62,13 @@ class LineChart extends React.Component {
   }
 
   componentDidUpdate() {
-    this.myChart.data.labels = this.props.data.map(d => d.time);
-    this.myChart.data.datasets[0].data = this.props.data.map(d => d.value);
-    this.myChart.update();
+    this.barChart.data.labels = this.props.data.map(d => d.time);
+    this.barChart.data.datasets[0].data = this.props.data.map(d => d.value);
+    this.barChart.update();
   }
 
   componentDidMount() {
-    this.myChart = new Chart(this.canvasRef.current, {
+    this.barChart = new Chart(this.canvasRef.current, {
       type: 'line',
       options: {
               maintainAspectRatio: false,
@@ -120,13 +120,13 @@ class DoughnutChart extends React.Component {
   }
 
   componentDidUpdate() {
-    this.myChart.data.labels = this.props.data.map(d => d.label);
-    this.myChart.data.datasets[0].data = this.props.data.map(d => d.value);
-    this.myChart.update();
+    this.barChart.data.labels = this.props.data.map(d => d.label);
+    this.barChart.data.datasets[0].data = this.props.data.map(d => d.value);
+    this.barChart.update();
   }
 
   componentDidMount() {
-    this.myChart = new Chart(this.canvasRef.current, {
+    this.barChart = new Chart(this.canvasRef.current, {
       type: 'doughnut',
       options: {
           maintainAspectRatio: false
@@ -146,12 +146,11 @@ class DoughnutChart extends React.Component {
   }
 }
 
-
 // dashboard
 export default class Dashboard extends Component {
   constructor(props) {
     super(props);
-    this.executionService = new ExecutionService();   
+    this.executionService = new MockExecutionService();   
     this.state = {
       data: this.executionService.getData()
     };
