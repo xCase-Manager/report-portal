@@ -8,15 +8,15 @@ class ExecutionService {
     }
 
     async retrieveExecutions() {
-      return retrieveData(this.config.EXECUTION_COLLECTION_URL);
+      return this.retrieveData(this.config.EXECUTION_COLLECTION_URL);
     }
 
     async retrieveTestcases() {
-      return retrieveData(this.config.TESTCASE_COLLECTION_URL);
+      return this.retrieveData(this.config.TESTCASE_COLLECTION_URL);
     }
 
     async retrieveProjects() {
-      return retrieveData(this.config.PROJECT_COLLECTION_URL);
+      return this.retrieveData(this.config.PROJECT_COLLECTION_URL);
     }
 
     async retrieveData(url) {
