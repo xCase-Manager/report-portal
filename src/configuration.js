@@ -1,6 +1,7 @@
 class Configuration {
-    EXECUTION_COLLECTION_URL = "http://localhost:5000/api/executions";
-    TESTCASE_COLLECTION_URL = "http://localhost:5000/api/testcases";
-    PROJECT_COLLECTION_URL = "http://localhost:5000/api/projects";
+    _BASE_URL = "http://localhost:5000/api";
+    EXECUTION_COLLECTION_URL = this._BASE_URL + "/executions";
+    TESTCASE_COLLECTION_URL = this._BASE_URL + "/testcases";
+    PROJECT_COLLECTION_URL = this._BASE_URL + "/projects";
 }
 export default Configuration;
