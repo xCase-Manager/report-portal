@@ -16,7 +16,7 @@ class ExecutionService {
     * @output promise (an execution or list of execution)
     */
     async retrieveExecutions(id) {
-      if(id != undefined)
+      if(id !== undefined)
         return this.retrieveData(
           this.config.EXECUTION_COLLECTION_URL + "/" + id);
       else return this.retrieveData(
@@ -29,7 +29,7 @@ class ExecutionService {
     * @output promise (a testcase or list of testcases)
     */
     async retrieveTestcases(id) {
-      if(id != undefined)
+      if(id !== undefined)
         return this.retrieveData(
           this.config.TESTCASE_COLLECTION_URL + "/" + id);
       else return this.retrieveData(
@@ -41,8 +41,8 @@ class ExecutionService {
     * @input id (optional)
     * @output promise (a project or list of projects)
     */
-    async retrieveProjects() {
-      if(id != undefined)
+    async retrieveProjects(id) {
+      if(id !== undefined)
         return this.retrieveData(
           this.config.PROJECT_COLLECTION_URL + "/" + id);
       else return this.retrieveData(

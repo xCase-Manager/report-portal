@@ -1,35 +1,46 @@
+import ExecutionService from '../services/executionService';
+
 /*
 * Mock data functions set
 */
 
-// exection data mock
 class MockExecutionService {
 
-  constructor() {}
+  constructor() {
+    this.executionService = new ExecutionService(); 
+  }
 
+  // project data from API and mock
   getData() {
-    let data = [];
-    data.push({
-      title: 'Project AAA01',
-      data: this.getRandomDateArray(150)
-    });
-      
-    data.push({
-      title: 'Project AAA02',
-      data: this.getRandomArray(20)
-    });
-      
-    data.push({
-      title: 'Project BBB01',
-      data: this.getRandomArray(10)
-    });
-      
-    data.push({
-      title: 'Project BBB02',
-      data: this.getRandomArray(6)
-    });
-      
-    return data;
+    return new Promise(
+      (resolve, reject) => {
+        this.executionService.retrieveProjects().then(
+          projects => {
+            let data = [];
+            data.push({
+              title: projects[0].name,
+              data: this.getRandomDateArray(150)
+            });
+              
+            data.push({
+              title: projects[1].name,
+              data: this.getRandomArray(20)
+            });
+              
+            data.push({
+              title: projects[2].name,
+              data: this.getRandomArray(10)
+            });
+              
+            data.push({
+              title: projects[3].name,
+              data: this.getRandomArray(6)
+            });
+            resolve(data);
+          }  
+        )
+      }
+    );
   }
 
   // mock execution data generation
