@@ -10,19 +10,43 @@ class ExecutionService {
       this.executions = [];
     }
 
-    // get executions list
-    async retrieveExecutions() {
-      return this.retrieveData(this.config.EXECUTION_COLLECTION_URL);
+    /*
+    * get execution
+    * @input id (optional)
+    * @output promise (an execution or list of execution)
+    */
+    async retrieveExecutions(id) {
+      if(id != undefined)
+        return this.retrieveData(
+          this.config.EXECUTION_COLLECTION_URL + "/" + id);
+      else return this.retrieveData(
+          this.config.EXECUTION_COLLECTION_URL);
     }
 
-    // get testcases list
-    async retrieveTestcases() {
-      return this.retrieveData(this.config.TESTCASE_COLLECTION_URL);
+    /*
+    * get testcase
+    * @input id (optional)
+    * @output promise (a testcase or list of testcases)
+    */
+    async retrieveTestcases(id) {
+      if(id != undefined)
+        return this.retrieveData(
+          this.config.TESTCASE_COLLECTION_URL + "/" + id);
+      else return this.retrieveData(
+          this.config.TESTCASE_COLLECTION_URL);
     }
 
-    // get projects list
+    /*
+    * get project
+    * @input id (optional)
+    * @output promise (a project or list of projects)
+    */
     async retrieveProjects() {
-      return this.retrieveData(this.config.PROJECT_COLLECTION_URL);
+      if(id != undefined)
+        return this.retrieveData(
+          this.config.PROJECT_COLLECTION_URL + "/" + id);
+      else return this.retrieveData(
+          this.config.PROJECT_COLLECTION_URL);
     }
 
     async retrieveData(url) {
