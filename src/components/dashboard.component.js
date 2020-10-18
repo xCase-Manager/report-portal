@@ -153,7 +153,8 @@ export default class Dashboard extends Component {
     this.executionService = new MockExecutionService();
 
     this.state = {
-      data: this.executionService.getData()
+      data: this.executionService.getData(),
+      testcaseData: this.executionService.getTestcases()
     };
   }
 
@@ -161,8 +162,10 @@ export default class Dashboard extends Component {
     const fetchData = async () => {
       window.setInterval(async () => {
         const _data = await this.executionService.getData()
+        const _testcaseData = await this.executionService.getTestcases()
         this.setState({
-          data: _data
+          data: _data,
+          testcaseData: _testcaseData
         })
       }, 5000)
     };
@@ -170,13 +173,17 @@ export default class Dashboard extends Component {
   }
 
   render() { 
-    if(this.state.data!==undefined && this.state.data.length > 0)
+    
+    if(this.state.data!==undefined && this.state.data.length > 0 && 
+      this.state.testcaseData!==undefined && this.state.testcaseData.length > 0)
       return (
         <div className="App">
           <div className="main chart-wrapper">
             <LineChart
               data={this.state.data[0].data}
-              title={this.state.data[0].title}
+              title={this.state.data[0].title + 
+                " (" + this.state.testcaseData[0].number + ")"
+              } 
               color="#3E517A"
             />
           </div>
