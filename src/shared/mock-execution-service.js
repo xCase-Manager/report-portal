@@ -10,7 +10,7 @@ class MockExecutionService {
     this.executionService = new ExecutionService(); 
   }
 
-  // project data from API and mock
+  // project data from server API and mock
   getData() {
     return new Promise(
       (resolve, reject) => {
@@ -35,6 +35,24 @@ class MockExecutionService {
             data.push({
               title: projects[3].name,
               data: this.getRandomArray(6)
+            });
+            resolve(data);
+          }  
+        )
+      }
+    );
+  }
+
+  // get testcases from server API
+  getTestcases() {
+    return new Promise(
+      (resolve, reject) => {
+        this.executionService.retrieveTestcases().then(
+          testcases => {
+            let data = [];
+            data.push({
+              "number": testcases.length,
+              testcases: testcases
             });
             resolve(data);
           }  
