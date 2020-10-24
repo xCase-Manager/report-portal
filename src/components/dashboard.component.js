@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import MockExecutionService from '../shared/mock-execution-service';
+import DataService from '../services/data.service';
 import { Chart } from 'chart.js';
 import '../App.css';
 
@@ -150,7 +150,7 @@ class DoughnutChart extends React.Component {
 export default class Dashboard extends Component {
   constructor(props) {
     super(props);
-    this.executionService = new MockExecutionService();
+    this.executionService = new DataService();
 
     this.state = {
       data: this.executionService.getData(),

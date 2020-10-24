@@ -1,10 +1,9 @@
-import ExecutionService from '../services/executionService';
+import ExecutionService from './executionService';
 
 /*
 * Mock data functions set
 */
-
-class MockExecutionService {
+class DataService {
 
   constructor() {
     this.executionService = new ExecutionService(); 
@@ -88,4 +87,4 @@ class MockExecutionService {
     return data;
   }
 }
-export default MockExecutionService
+export default DataService
